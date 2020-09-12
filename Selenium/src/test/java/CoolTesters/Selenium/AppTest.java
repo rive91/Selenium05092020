@@ -19,4 +19,10 @@ public class AppTest
     {
         assertTrue( true );
     }
+    
+    @Test
+    public void shouldAnswerWithTrue2()
+    {
+        assertTrue( false );
+    }
 }
