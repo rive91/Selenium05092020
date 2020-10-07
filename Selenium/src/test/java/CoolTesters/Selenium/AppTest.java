@@ -1,6 +1,6 @@
 package CoolTesters.Selenium;
 
-import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.assertTrue;
 
 import org.testng.annotations.Test;
 
@@ -17,12 +17,35 @@ public class AppTest
     @Test
     public void shouldAnswerWithTrue()
     {
-        assertTrue( false );
+    	int x = 3;
+		int y = 2;
+		int resultado;
+		
+		resultado = x * y;
+		System.out.println(resultado);
     }
     
     @Test
     public void shouldAnswerWithTrue2()
     {
-        assertTrue( false );
+    	int x = 3;
+		int y = 2;
+		int resultado;
+		
+		resultado = x * y;
+		System.out.println(resultado);
     }
+    
+    @Test
+    public void shouldAnswerWithTrue3()
+    {
+    	int x = 3;
+		int y = 2;
+		int resultado;
+		
+		resultado = x * y;
+		System.out.println(resultado);
+    }
+    
+
 }
