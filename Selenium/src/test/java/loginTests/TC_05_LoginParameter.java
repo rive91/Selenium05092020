@@ -3,14 +3,14 @@ package loginTests;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import commonMethods.CommonMethods;
 import commonMethods.variablesGlobales;
 import driverSetup.DriverSetup;
 import navPages.loginPage;
 
-public class TC_01_CorrecLogin {
+public class TC_05_LoginParameter {
 	WebDriver driver = DriverSetup.setupDriver();
 
 	// Login PageObject
@@ -21,17 +21,17 @@ public class TC_01_CorrecLogin {
 		driver.get(variablesGlobales.HOME_PAGE);
 		driver.manage().window().maximize();
 	}
-
+	
 	@Test
-	public void TC_01_CorrectLogin() {
-		login.login(variablesGlobales.USER_ADMIN, variablesGlobales.PASSWORD_ADMIN);
-		
+	@Parameters ({"user","password"})
+	public void TC_05(String user, String password) {
+		login.login(user, password);
 	}
+
 
 	@AfterTest
 	public void closeDriver() {
-		CommonMethods.takeScreenshot(driver, "TC_01_CorrectLogin");
 		driver.quit();
-
+	
 	}
 }

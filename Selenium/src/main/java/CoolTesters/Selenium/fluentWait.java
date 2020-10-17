@@ -30,7 +30,7 @@ public class fluentWait {
         	      WebElement txtUsername = wait.until(new Function<WebDriver, WebElement>() {
         	    	  public WebElement apply(WebDriver driver) {
         	    		driver.navigate().refresh();
-        	    	    return driver.findElement(By.id("txtUsername"));
+        	    	    return driver.findElement(By.id("txtUsernam"));
         	    	  }
         	    	});
         		}

@@ -1,10 +1,14 @@
 package CoolTesters.Selenium;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Paths;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.io.FileHandler;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -66,5 +70,23 @@ public class HardAssert {
       boolean titulo = actualTitle.contains(expectedTitle);
       
       Assert.assertTrue(titulo);
+      takeSnapShot(driver, "verificarTituloDePaginaBoolean2");
+      
+      driver.close();
   }
+  
+  public static void takeSnapShot(WebDriver webdriver , String testCaseName){
+	  //Toma el Screenshot de la pagina
+	  File scrFile = ((TakesScreenshot)webdriver).getScreenshotAs(OutputType.FILE);
+	  //Seteamos la ruta donde se va a guardar el screenshot
+	  String screenShotPath = Paths.get("").toAbsolutePath().toString() + File.separator + "test-output" + File.separator + testCaseName;
+      try {
+  		FileHandler.createDir(new File(screenShotPath));//Creamos el folder usando la ruta especificada
+		FileHandler.copy(scrFile, new File(screenShotPath + File.separator + "evidence.png"));//Copiamos el Screenshot a la ruta creada
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	}
 }
